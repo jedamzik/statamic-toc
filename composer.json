@@ -1,6 +1,6 @@
 {
     "name": "jedamzik/statamic-toc",
-    "description": "Generates a Table of Contents from Markdown Headings.",
+    "description": "Auto-Generated Table Of Contents from Markdown Fields for Statamic 3.",
     "type": "statamic-addon",
     "license": "MIT",
     "autoload": {
@@ -36,7 +36,7 @@
         },
         "statamic": {
             "name": "Toc",
-            "description": "Generates a Table of Contents from Markdown Headings."
+            "description": "Auto-Generated Table Of Contents from Markdown Fields for Statamic 3."
         },
         "laravel": {
             "providers": [
