@@ -1,6 +1,10 @@
 {
     "name": "jedamzik/statamic-toc",
     "description": "Auto-Generated Table Of Contents from Markdown Fields for Statamic 3.",
+    "keywords": [
+        "Statamic",
+        "Table Of Contents"
+    ],
     "type": "statamic-addon",
     "license": "MIT",
     "autoload": {
