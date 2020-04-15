@@ -59,7 +59,7 @@ return [
 ];
 ```
 
-Linked page fragments are a slugified version of the Heading string; `Example Title` becomes `#example-title`.
+Linked page fragments are a slugified version of the Heading string (`Example Title` -> `#example-title`).
 
 You can extend your Markdown Parser with the provided `Njed\Toc\Extensions\CommonMark\TitleAnchorIdExtension` to provide these ids for your heading nodes in your rendered views.
 
