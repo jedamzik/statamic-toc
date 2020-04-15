@@ -11,12 +11,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+
       - name: Install dependencies
-        run: yarn install
-      
+        run: npm install
+
       - name: Compile assets
-        run: yarn production
+        run: npm run production
       
       - name: Create zip
         run: tar -czvf dist.tar.gz dist
