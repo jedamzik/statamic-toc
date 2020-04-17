@@ -1,4 +1,5 @@
 [![Latest Version](https://img.shields.io/github/v/release/jedamzik/statamic-toc?style=flat-square)](https://github.com/jedamzik/statamic-toc/releases)
+![Tests](https://img.shields.io/github/workflow/status/jedamzik/statamic-toc/run-tests?label=Tests&style=flat-square)
 
 # Toc
 
