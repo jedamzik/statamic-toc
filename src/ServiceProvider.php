@@ -4,7 +4,7 @@ namespace Njed\Toc;
 
 use Njed\Toc\Listeners\GenerateToc;
 use Njed\Toc\Tags\Toc;
-use Statamic\Events\Data\EntrySaving;
+use Statamic\Events\EntrySaving;
 use Statamic\Providers\AddonServiceProvider;
 
 class ServiceProvider extends AddonServiceProvider
