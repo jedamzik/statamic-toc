@@ -3,7 +3,7 @@
 namespace Njed\Toc\Listeners;
 
 use Njed\Toc\Extensions\CommonMark\GenerateTocExtension;
-use Statamic\Events\Data\EntrySaving;
+use Statamic\Events\EntrySaving;
 use Statamic\Facades\Markdown;
 
 class GenerateToc
@@ -16,8 +16,8 @@ class GenerateToc
      */
     public function handle(EntrySaving $event)
     {
-        if (collect(config('toc.collections'))->keys()->contains($event->data->collectionHandle())) {
-            $content = $event->data->value(config("toc.collections.{$event->data->collectionHandle()}", 'content'));
+        if (collect(config('toc.collections'))->keys()->contains($event->entry->collectionHandle())) {
+            $content = $event->entry->value(config("toc.collections.{$event->entry->collectionHandle()}", 'content'));
 
             Markdown::extend('default', function ($parser) {
                 return $parser
@@ -26,7 +26,7 @@ class GenerateToc
 
             $headings = Markdown::parse($content);
 
-            $event->data->set('table_of_contents', trim($headings));
+            $event->entry->set('table_of_contents', trim($headings));
         }
     }
 }
