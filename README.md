@@ -68,7 +68,7 @@ To extend the default Parser for all Markdown fields in your Statamic instance, 
 
 ```php
 Markdown::addExtension(function () {
-    return new \Njed\Toc\Extensions\CommonMark\TitleAnchorIdExtension::class
+    return new \Njed\Toc\Extensions\CommonMark\TitleAnchorIdExtension;
 });
 ```
 
@@ -79,7 +79,7 @@ Markdown::extend('special', function ($parser) {
     return $parser
         ->withStatamicDefaults()
         ->addExtension(function () {
-            return new \Njed\Toc\Extensions\CommonMark\TitleAnchorIdExtension::class
+            return new \Njed\Toc\Extensions\CommonMark\TitleAnchorIdExtension;
         });
 });
 ```
