@@ -1,6 +1,6 @@
 {
   "name": "statamic-toc",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "[![Latest Version](https://img.shields.io/github/v/release/jedamzik/statamic-toc?style=flat-square)](https://github.com/jedamzik/statamic-toc/releases)",
   "main": "index.js",
   "scripts": {

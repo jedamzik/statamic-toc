@@ -6,7 +6,7 @@ use Njed\Toc\Listeners\GenerateToc;
 use Njed\Toc\Tests\Factories\EntryFactory;
 use Njed\Toc\Tests\TestCase;
 use Statamic\Entries\Entry;
-use Statamic\Events\Data\EntrySaving;
+use Statamic\Events\EntrySaving;
 
 class GenerateTocListenerTest extends TestCase
 {
@@ -15,8 +15,8 @@ class GenerateTocListenerTest extends TestCase
     {
         $listener = $this->mock(GenerateToc::class);
         $this->app->instance(GenerateToc::class, $listener);
-        $listener->shouldReceive('handle')->once();
-        
+        $listener->shouldReceive('handle');
+
         event(new EntrySaving(new Entry));
     }
 
@@ -40,23 +40,21 @@ class GenerateTocListenerTest extends TestCase
             ]
         ]);
 
-        $content = <<<EOL
-        # First Heading
-        ## Second Heading
-        ## Third Heading
-        ### Fourth Heading
-        ### Fifth Heading
-        ## Sixth Heading
-        #### Seventh Heading
-        ##### Eight Heading
-        ###### Ninth Heading
+        $content = "# First Heading
+## Second Heading
+## Third Heading
+### Fourth Heading
+### Fifth Heading
+## Sixth Heading
+#### Seventh Heading
+##### Eight Heading
+###### Ninth Heading
 
-        Paragraph for testing
-        
-        * First list item
-        * Second list item
-        * Third list item
-        EOL;
+Paragraph for testing
+
+* First list item
+* Second list item
+* Third list item";
 
         $entry = (new EntryFactory)->collection('pages')->data([
             'content' => $content
