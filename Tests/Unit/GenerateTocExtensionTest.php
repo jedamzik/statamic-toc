@@ -127,7 +127,7 @@ class GenerateTocExtensionTest extends TestCase
     }
 
     /** @test */
-    public function it_does_not_add_extension_if_there_are_no_headings()
+    public function it_does_not_add_extension_if_there_are_no_headings_in_content()
     {
         $content = <<<EOL
         Paragraph for testing
