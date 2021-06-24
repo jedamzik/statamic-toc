@@ -123,7 +123,7 @@ class GenerateTocExtensionTest extends TestCase
         $result = Markdown::parse($this->content);
         $this->assertStringContainsString("<li class=\"child\">\n<p>Fourth Heading</p>\n</li>", $result);
         $this->assertStringContainsString("<li class=\"child\">\n<p>Fifth Heading</p>\n</li>", $result);
-        $this->assertStringContainsString("<li class=\"child\">\n<p>Seventh Heading</p>\n</li>", $result);
+        $this->assertStringContainsString("<li class=\"child grandchild\">\n<p>Seventh Heading</p>\n</li>", $result);
     }
 
     /** @test */
