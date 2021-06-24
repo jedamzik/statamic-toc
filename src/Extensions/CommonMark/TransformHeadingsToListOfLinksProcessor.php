@@ -63,7 +63,10 @@ final class TransformHeadingsToListOfLinksProcessor
         }
 
         $e->getDocument()->detachChildren();
-        $e->getDocument()->appendChild($listBlock);
+        // Only if there are items should we add the TOC
+        if (!empty($listBlock->children())) {
+            $e->getDocument()->appendChild($listBlock);
+        }
     }
 
     private function configIncludesLevel(string $level): bool
