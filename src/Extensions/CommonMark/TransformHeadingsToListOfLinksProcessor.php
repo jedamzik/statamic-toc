@@ -7,7 +7,6 @@ use League\CommonMark\Block\Element\ListBlock;
 use League\CommonMark\Block\Element\ListData;
 use League\CommonMark\Block\Element\ListItem;
 use League\CommonMark\Block\Element\Paragraph;
-use League\CommonMark\EnvironmentInterface;
 use League\CommonMark\Event\DocumentParsedEvent;
 use League\CommonMark\Inline\Element\Link;
 use League\CommonMark\Inline\Element\Text;
@@ -20,7 +19,7 @@ final class TransformHeadingsToListOfLinksProcessor
 
         $data = new ListData;
         $data->markerOffset = 0;
-        $data->type = ListBlock::TYPE_UNORDERED;
+        $data->type = ListBlock::TYPE_BULLET;
 
         $listBlock = new ListBlock($data);
         $listBlock->data['attributes']['class'] = 'table-of-contents';
