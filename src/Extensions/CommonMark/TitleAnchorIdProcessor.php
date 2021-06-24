@@ -8,7 +8,8 @@ use League\CommonMark\Event\DocumentParsedEvent;
 
 final class TitleAnchorIdProcessor
 {
-    private EnvironmentInterface $environment;
+    /** @var EnvironmentInterface  */
+    private $environment;
 
     public function __construct(EnvironmentInterface $environment)
     {

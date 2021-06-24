@@ -14,7 +14,8 @@ use League\CommonMark\Inline\Element\Text;
 
 final class TransformHeadingsToListOfLinksProcessor
 {
-    private EnvironmentInterface $environment;
+    /** @var EnvironmentInterface  */
+    private $environment;
 
     public function __construct(EnvironmentInterface $environment)
     {
