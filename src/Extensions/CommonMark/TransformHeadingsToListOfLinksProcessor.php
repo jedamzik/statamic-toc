@@ -76,14 +76,13 @@ final class TransformHeadingsToListOfLinksProcessor
     private function getNodeClasses($nodeLevel): string
     {
         $classes = [];
+        // h3 headings
         if ($nodeLevel > 2) {
             $classes[] = 'child';
         }
+        // h4 headings
         if ($nodeLevel > 3) {
             $classes[] = 'grandchild';
-        }
-        if ($nodeLevel > 4) {
-            $classes[] = 'grandgrandchild';
         }
         return implode(' ', $classes);
     }
