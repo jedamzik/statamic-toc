@@ -6,7 +6,7 @@ use Njed\Toc\Tags\Toc;
 use Njed\Toc\Tests\TestCase;
 use Statamic\View\Antlers\Parser;
 
-class TagTest extends TestCase
+class TocTagTest extends TestCase
 {
     public $tag;
     public $context;

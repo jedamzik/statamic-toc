@@ -16,7 +16,7 @@ class GenerateTocExtensionTest extends TestCase
 
         Markdown::extend('default', function ($parser) {
             return $parser
-                ->addExtension(fn() => new GenerateTocExtension);
+                ->addExtension(function() { return new GenerateTocExtension; });
         });
 
         $this->content = <<<EOL
