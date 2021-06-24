@@ -45,10 +45,7 @@ final class TransformHeadingsToListOfLinksProcessor
                     $listItem->appendChild($paragraph);
                 }
 
-
-                if ($node->getLevel() > 2) {
-                    $listItem->data['attributes']['class'] = 'child';
-                }
+                $listItem->data['attributes']['class'] = $this->getNodeClasses($node->getLevel());
 
                 $listBlock->appendChild($listItem);
             }
@@ -68,5 +65,26 @@ final class TransformHeadingsToListOfLinksProcessor
         }
 
         return collect(config('toc.includeLevels'))->contains($level);
+    }
+
+    /**
+     * Returns the classes for a list element based on it's depth
+     *
+     * @param $nodeLevel
+     * @return string
+     */
+    private function getNodeClasses($nodeLevel): string
+    {
+        $classes = [];
+        if ($nodeLevel > 2) {
+            $classes[] = 'child';
+        }
+        if ($nodeLevel > 3) {
+            $classes[] = 'grandchild';
+        }
+        if ($nodeLevel > 4) {
+            $classes[] = 'grandgrandchild';
+        }
+        return implode(' ', $classes);
     }
 }
