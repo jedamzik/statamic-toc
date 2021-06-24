@@ -14,14 +14,6 @@ use League\CommonMark\Inline\Element\Text;
 
 final class TransformHeadingsToListOfLinksProcessor
 {
-    /** @var EnvironmentInterface  */
-    private $environment;
-
-    public function __construct(EnvironmentInterface $environment)
-    {
-        $this->environment = $environment;
-    }
-
     public function __invoke(DocumentParsedEvent $e)
     {
         $walker = $e->getDocument()->walker();
