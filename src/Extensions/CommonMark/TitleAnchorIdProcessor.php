@@ -3,7 +3,6 @@
 namespace Njed\Toc\Extensions\CommonMark;
 
 use League\CommonMark\Block\Element\Heading;
-use League\CommonMark\EnvironmentInterface;
 use League\CommonMark\Event\DocumentParsedEvent;
 
 final class TitleAnchorIdProcessor
