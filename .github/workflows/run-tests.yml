@@ -24,7 +24,7 @@ jobs:
                       testbench: 5.*
                 exclude:
                   - php: 8.0
-                    statmic: 3.0.23
+                    statamic: 3.0.23
 
         name: P${{ matrix.php }} - L${{ matrix.laravel }} - S${{ matrix.statamic }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
