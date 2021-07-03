@@ -123,6 +123,20 @@ class GenerateTocExtensionTest extends TestCase
         $result = Markdown::parse($this->content);
         $this->assertStringContainsString("<li class=\"child\">\n<p>Fourth Heading</p>\n</li>", $result);
         $this->assertStringContainsString("<li class=\"child\">\n<p>Fifth Heading</p>\n</li>", $result);
-        $this->assertStringContainsString("<li class=\"child\">\n<p>Seventh Heading</p>\n</li>", $result);
+        $this->assertStringContainsString("<li class=\"child grandchild\">\n<p>Seventh Heading</p>\n</li>", $result);
+    }
+
+    /** @test */
+    public function it_does_not_add_extension_if_there_are_no_headings_in_content()
+    {
+        $content = <<<EOL
+        Paragraph for testing
+        
+        And a second paragraph
+        EOL;
+
+        $result = Markdown::parse($content);
+
+        $this->assertStringNotContainsString('<ul', $result);
     }
 }

@@ -21,7 +21,7 @@ class GenerateToc
 
             Markdown::extend('default', function ($parser) {
                 return $parser
-                    ->addExtension(fn() => new GenerateTocExtension);
+                    ->addExtension(function () { return new GenerateTocExtension; });
             });
 
             $headings = Markdown::parse($content);

@@ -3,18 +3,10 @@
 namespace Njed\Toc\Extensions\CommonMark;
 
 use League\CommonMark\Block\Element\Heading;
-use League\CommonMark\EnvironmentInterface;
 use League\CommonMark\Event\DocumentParsedEvent;
 
 final class TitleAnchorIdProcessor
 {
-    private EnvironmentInterface $environment;
-
-    public function __construct(EnvironmentInterface $environment)
-    {
-        $this->environment = $environment;
-    }
-
     public function __invoke(DocumentParsedEvent $e)
     {
         $walker = $e->getDocument()->walker();

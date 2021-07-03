@@ -7,27 +7,19 @@ use League\CommonMark\Block\Element\ListBlock;
 use League\CommonMark\Block\Element\ListData;
 use League\CommonMark\Block\Element\ListItem;
 use League\CommonMark\Block\Element\Paragraph;
-use League\CommonMark\EnvironmentInterface;
 use League\CommonMark\Event\DocumentParsedEvent;
 use League\CommonMark\Inline\Element\Link;
 use League\CommonMark\Inline\Element\Text;
 
 final class TransformHeadingsToListOfLinksProcessor
 {
-    private EnvironmentInterface $environment;
-
-    public function __construct(EnvironmentInterface $environment)
-    {
-        $this->environment = $environment;
-    }
-
     public function __invoke(DocumentParsedEvent $e)
     {
         $walker = $e->getDocument()->walker();
 
         $data = new ListData;
         $data->markerOffset = 0;
-        $data->type = ListBlock::TYPE_UNORDERED;
+        $data->type = ListBlock::TYPE_BULLET;
 
         $listBlock = new ListBlock($data);
         $listBlock->data['attributes']['class'] = 'table-of-contents';
@@ -53,17 +45,17 @@ final class TransformHeadingsToListOfLinksProcessor
                     $listItem->appendChild($paragraph);
                 }
 
-
-                if ($node->getLevel() > 2) {
-                    $listItem->data['attributes']['class'] = 'child';
-                }
+                $listItem->data['attributes']['class'] = $this->getNodeClasses($node->getLevel());
 
                 $listBlock->appendChild($listItem);
             }
         }
 
         $e->getDocument()->detachChildren();
-        $e->getDocument()->appendChild($listBlock);
+        // Only if there are items should we add the TOC
+        if (!empty($listBlock->children())) {
+            $e->getDocument()->appendChild($listBlock);
+        }
     }
 
     private function configIncludesLevel(string $level): bool
@@ -73,5 +65,25 @@ final class TransformHeadingsToListOfLinksProcessor
         }
 
         return collect(config('toc.includeLevels'))->contains($level);
+    }
+
+    /**
+     * Returns the classes for a list element based on it's depth
+     *
+     * @param $nodeLevel
+     * @return string
+     */
+    private function getNodeClasses($nodeLevel): string
+    {
+        $classes = [];
+        // h3 headings
+        if ($nodeLevel > 2) {
+            $classes[] = 'child';
+        }
+        // h4 headings
+        if ($nodeLevel > 3) {
+            $classes[] = 'grandchild';
+        }
+        return implode(' ', $classes);
     }
 }
