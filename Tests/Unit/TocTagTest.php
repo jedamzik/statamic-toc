@@ -21,12 +21,6 @@ class TocTagTest extends TestCase
     }
 
     /** @test */
-    public function it_has_been_registered()
-    {
-        $this->assertTrue(isset(app('statamic.tags')['toc']));
-    }
-
-    /** @test */
     public function it_returns_null_if_no_data_is_set_in_context()
     {
         $this->assertNull($this->tag->index());
