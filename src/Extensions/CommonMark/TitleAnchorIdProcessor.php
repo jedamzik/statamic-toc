@@ -2,7 +2,7 @@
 
 namespace Njed\Toc\Extensions\CommonMark;
 
-use League\CommonMark\Block\Element\Heading;
+use League\CommonMark\Extension\CommonMark\Node\Block\Heading;
 use League\CommonMark\Event\DocumentParsedEvent;
 
 final class TitleAnchorIdProcessor
@@ -21,8 +21,10 @@ final class TitleAnchorIdProcessor
 
     private static function addAnchorIdToHeading(Heading $heading): void
     {
-        $slug = str_slug($heading->getStringContent(), '-', config('app.locale', 'en'));
+        $slug = str_slug($heading->lastChild()->getLiteral(), '-', config('app.locale', 'en'));
 
-        $heading->data['attributes']['id'] = $slug;
+        $heading->data->set('attributes', [
+            'id' => $slug
+        ]);
     }
 }
