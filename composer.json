@@ -1,5 +1,5 @@
 {
-    "name": "jedamzik/statamic-toc",
+    "name": "diogovitzo/statamic-toc",
     "description": "Auto-Generated Table Of Contents from Markdown Fields for Statamic 3.",
     "keywords": [
         "Statamic",
@@ -14,8 +14,8 @@
     },
     "authors": [
         {
-            "name": "Nicholas Jedamzik",
-            "email": "nicholas@njed.dev"
+            "name": "Diogo Gouveia",
+            "email": "diogo.gouveia@vitzo.com"
         }
     ],
     "require": {
@@ -34,7 +34,7 @@
   	},
     "extra": {
         "download-dist": {
-            "url": "https://github.com/jedamzik/statamic-toc/releases/download/{$version}/dist.tar.gz",
+            "url": "https://github.com/diogovitzo/statamic-toc/releases/download/{$version}/dist.tar.gz",
             "path": "resources/dist"
         },
         "statamic": {
