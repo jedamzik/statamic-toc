@@ -1,6 +1,6 @@
 {
     "name": "jedamzik/statamic-toc",
-    "description": "Auto-Generated Table Of Contents from Markdown Fields for Statamic 3.",
+    "description": "Auto-Generated Table Of Contents from Markdown Fields for Statamic.",
     "keywords": [
         "Statamic",
         "Table Of Contents"
@@ -19,13 +19,13 @@
         }
     ],
     "require": {
-        "php": "^8.0 | ^8.1",
-        "statamic/cms": "^3.3 | ^4.0",
+        "php": "^8.0 | ^8.1 | ^8.2",
+        "statamic/cms": "^3.3 | ^4.0 | ^5.0",
         "league/commonmark": "^2.3.5"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5.21",
-        "orchestra/testbench": "^6.24.1 | ^7.4"
+        "phpunit/phpunit": "^9.5.21 | ^10.5 | ^11.0",
+        "orchestra/testbench": "^6.24.1 | ^7.4 | ^8.23 | ^v9.1"
     },
  	"autoload-dev": {
     	"psr-4": {
@@ -39,7 +39,7 @@
         },
         "statamic": {
             "name": "Toc",
-            "description": "Auto-Generated Table Of Contents from Markdown Fields for Statamic 3."
+            "description": "Auto-Generated Table Of Contents from Markdown Fields for Statamic."
         },
         "laravel": {
             "providers": [
