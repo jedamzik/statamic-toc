@@ -4,7 +4,6 @@ namespace Njed\Toc\Tests\Unit;
 
 use Njed\Toc\Tags\Toc;
 use Njed\Toc\Tests\TestCase;
-use Statamic\View\Antlers\Parser;
 
 class TocTagTest extends TestCase
 {
@@ -16,7 +15,6 @@ class TocTagTest extends TestCase
         parent::setUp();
 
         $this->tag = new Toc();
-        $this->tag->setParser(new Parser);
         $this->tag->setContext([]);
     }
 
